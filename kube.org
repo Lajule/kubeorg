@@ -1,0 +1,52 @@
+#+STARTUP: show2levels
+#+STARTUP: indent
+#+TAGS: kubernetes
+
+#+title: Kubernetes
+#+author: Julien ROUZIERES
+
+
+* Contexts
+
+** Get all contexts
+
+#+BEGIN_SRC shell
+    kubectl config get-contexts
+#+END_SRC
+
+** Set a context
+
+#+BEGIN_SRC shell :var context="admin@cluster-livedbs-staging" :results raw
+     kubectl config set-context ${context}
+#+END_SRC
+
+** Get current context
+
+#+BEGIN_SRC shell
+     kubectl config current-context
+#+END_SRC
+
+* Namespaces
+
+** Get all namespaces
+
+#+NAME: namespaces
+#+BEGIN_SRC shell
+     kubectl get namespaces
+#+END_SRC
+
+* Pods
+
+** Get all pods
+
+#+NAME: pods
+#+BEGIN_SRC shell
+    kubectl get pods -A
+#+END_SRC
+
+** Describe a pod
+
+#+BEGIN_SRC shell :var name="pgproxy-8vh7g" :results raw
+  kubectl describe pod ${name}
+#+END_SRC
+
