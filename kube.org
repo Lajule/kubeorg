@@ -11,25 +11,25 @@
 ** Get all contexts
 
 #+BEGIN_SRC shell
-    kubectl config get-contexts
+  kubectl config get-contexts
 #+END_SRC
 
 ** Set a context
 
 #+BEGIN_SRC shell :var context="admin@cluster-livedbs-staging" :results raw
-     kubectl config set-context ${context}
+  kubectl config set-context ${context}
 #+END_SRC
 
 ** Delete a context
 
 #+BEGIN_SRC shell :var context="admin@d10293e9-85a6-437b-af04-547cd17e2d4c" :results raw
-     kubectl config delete-context ${context}
+  kubectl config delete-context ${context}
 #+END_SRC
 
 ** Get current context
 
 #+BEGIN_SRC shell
-     kubectl config current-context
+  kubectl config current-context
 #+END_SRC
 
 * Namespaces
@@ -38,7 +38,7 @@
 
 #+NAME: namespaces
 #+BEGIN_SRC shell
-     kubectl get namespaces
+  kubectl get namespaces
 #+END_SRC
 
 * Pods
@@ -47,7 +47,7 @@
 
 #+NAME: pods
 #+BEGIN_SRC shell
-    kubectl get pods -A
+  kubectl get pods -A
 #+END_SRC
 
 ** Describe a pod
