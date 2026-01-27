@@ -20,6 +20,12 @@
      kubectl config set-context ${context}
 #+END_SRC
 
+** Delete a context
+
+#+BEGIN_SRC shell :var context="admin@d10293e9-85a6-437b-af04-547cd17e2d4c" :results raw
+     kubectl config delete-context ${context}
+#+END_SRC
+
 ** Get current context
 
 #+BEGIN_SRC shell
