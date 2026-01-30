@@ -6,53 +6,73 @@
 #+author: Julien ROUZIERES
 
 
-* Contexts
+* kubectl
 
-** Get all contexts
+[[https://kubernetes.io/docs/reference/kubectl/quick-reference/][kubectl Quick Reference]]
+
+** Contexts
+
+[[https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/][kubectl config]]
+
+*** Get all contexts
 
 #+BEGIN_SRC shell
   kubectl config get-contexts
 #+END_SRC
 
-** Set a context
+*** Set a context
 
-#+BEGIN_SRC shell :var context="admin@cluster-livedbs-staging" :results raw
+#+BEGIN_SRC shell :var context="user@cluster" :results raw
   kubectl config set-context ${context}
 #+END_SRC
 
-** Delete a context
+*** Delete a context
 
-#+BEGIN_SRC shell :var context="admin@d10293e9-85a6-437b-af04-547cd17e2d4c" :results raw
+#+BEGIN_SRC shell :var context="user@cluster" :results raw
   kubectl config delete-context ${context}
 #+END_SRC
 
-** Get current context
+*** Get current context
 
 #+BEGIN_SRC shell
   kubectl config current-context
 #+END_SRC
 
-* Namespaces
+** Namespaces
 
-** Get all namespaces
+*** Get all namespaces
 
 #+NAME: namespaces
 #+BEGIN_SRC shell
   kubectl get namespaces
 #+END_SRC
 
-* Pods
+** Pods
 
-** Get all pods
+*** Get all pods
 
 #+NAME: pods
 #+BEGIN_SRC shell
   kubectl get pods -A
 #+END_SRC
 
-** Describe a pod
+*** Get all pods in a namespace
 
-#+BEGIN_SRC shell :var name="pgproxy-8vh7g" :results raw
-  kubectl describe pod ${name}
+#+BEGIN_SRC shell :var namespace="namespace"
+    kubectl get pods -n ${namespace}
+#+END_SRC
+
+** Resources
+
+*** Get a resource
+
+#+BEGIN_SRC shell :var type="pod" pod="pod" namespace="namespace" :results file :file config.yaml
+  kubectl get ${type}  ${pod} -n ${namespace} -o yaml
+#+END_SRC
+
+*** Modify a resource
+
+#+BEGIN_SRC shell :results raw
+  kubectl apply -f config.yaml
 #+END_SRC
 
