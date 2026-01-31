@@ -59,7 +59,7 @@
 *** Get all pods in a namespace
 
 #+BEGIN_SRC shell :var namespace="namespace"
-    kubectl get pods -n ${namespace}
+  kubectl get pods -n ${namespace}
 #+END_SRC
 
 ** Resources
@@ -75,4 +75,3 @@
 #+BEGIN_SRC shell :results raw
   kubectl apply -f config.yaml
 #+END_SRC
-
