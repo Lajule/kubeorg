@@ -5,7 +5,6 @@
 #+title: Kubernetes
 #+author: Julien ROUZIERES
 
-
 * kubectl
 
 [[https://kubernetes.io/docs/reference/kubectl/quick-reference/][kubectl Quick Reference]]
@@ -20,15 +19,15 @@
   kubectl config get-contexts
 #+END_SRC
 
-*** Set a context
+*** Use a context
 
-#+BEGIN_SRC shell :var context="user@cluster" :results raw
-  kubectl config set-context ${context}
+#+BEGIN_SRC shell :var context="context"
+  kubectl config use-context ${context}
 #+END_SRC
 
 *** Delete a context
 
-#+BEGIN_SRC shell :var context="user@cluster" :results raw
+#+BEGIN_SRC shell :var context="context"
   kubectl config delete-context ${context}
 #+END_SRC
 
@@ -66,12 +65,12 @@
 
 *** Get a resource
 
-#+BEGIN_SRC shell :var type="pod" pod="pod" namespace="namespace" :results file :file config.yaml
-  kubectl get ${type}  ${pod} -n ${namespace} -o yaml
+#+BEGIN_SRC shell :var type="pod" name="name" namespace="namespace" :results file :file config.yaml
+  kubectl get ${type} ${name} -n ${namespace} -o yaml
 #+END_SRC
 
 *** Modify a resource
 
-#+BEGIN_SRC shell :results raw
+#+BEGIN_SRC shell
   kubectl apply -f config.yaml
 #+END_SRC
